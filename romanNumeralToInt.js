@@ -1,4 +1,4 @@
-function romanNumeralToInt(romanNumeral) {
+export function romanNumeralToInt(romanNumeral) {
     const upperCaseRomanNumeral = romanNumeral.toUpperCase();
     const romanNumeralToIntLookupTable = {
         'I': 1,
@@ -32,5 +32,3 @@ class InvalidRomanNumeralError extends Error {
         this.name = "InvalidRomanNumeralError";
     }
 }
-
-module.exports = { romanNumeralToInt, InvalidRomanNumeralError };

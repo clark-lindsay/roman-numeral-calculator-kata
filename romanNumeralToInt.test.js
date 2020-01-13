@@ -1,4 +1,4 @@
-const { romanNumeralToInt, InvalidRomanNumeralError } = require('./romanNumeralToInt');
+import { romanNumeralToInt, InvalidRomanNumeralError } from './romanNumeralToInt';
 
 describe('Roman numeral to integer translator', () => {
     it('is case insensitive for handling conversions', () => {
