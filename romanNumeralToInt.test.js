@@ -19,21 +19,15 @@ describe('Roman numeral to integer translator', () => {
         expect(() => romanNumeralToInt(25)).toThrow(InvalidRomanNumeralError);
     });
 
-    it('returns 4 when given IV', () => {
-        expect(romanNumeralToInt('IV')).toEqual(4);
-    });
-
-    it('returns 9 when given IX', () => {
-        expect(romanNumeralToInt('IX')).toEqual(9);
-    });
-
-    it('returns 19 when given XIX', () => {
-        expect(romanNumeralToInt('XIX')).toEqual(19);
-    });
-
     it('can convert strings that use only addition of characters into integers', () => {
         expect(romanNumeralToInt('VII')).toEqual(7);
         expect(romanNumeralToInt('XL')).toEqual(40);
         expect(romanNumeralToInt('MLXII')).toEqual(1062);
+    });
+
+    it('can convert strings that use subtraction of characters into integers', () => {
+        expect(romanNumeralToInt('IV')).toEqual(4);
+        expect(romanNumeralToInt('XIX')).toEqual(19);
+        expect(romanNumeralToInt('MCMXLIII')).toEqual(1943);
     });
 });
