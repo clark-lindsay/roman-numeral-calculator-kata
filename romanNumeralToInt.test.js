@@ -15,6 +15,8 @@ describe('Roman numeral to integer translator', () => {
 
     it('should throw an error if given an invalid roman numeral', () => {
         expect(() => romanNumeralToInt('P')).toThrow(InvalidRomanNumeralError);
+        expect(() => romanNumeralToInt('1')).toThrow(InvalidRomanNumeralError);
+        expect(() => romanNumeralToInt(25)).toThrow(InvalidRomanNumeralError);
     });
 
     it('returns 4 when given IV', () => {
