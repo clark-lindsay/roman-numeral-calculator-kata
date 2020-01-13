@@ -11,5 +11,8 @@
   },
   "scripts": {
     "test": "jest"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.8.2"
   }
 }
