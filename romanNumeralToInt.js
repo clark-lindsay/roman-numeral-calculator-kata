@@ -1,5 +1,27 @@
 export function romanNumeralToInt(romanNumeral) {
     const upperCaseRomanNumeral = [...(romanNumeral.toUpperCase())];
+    var result = 0;
+
+    for (const [index, char] of upperCaseRomanNumeral.entries()) {
+        const currentValue = convertRomanNumeralCharacterToInteger(char);
+
+        if (index === upperCaseRomanNumeral.length - 1) (result += currentValue);
+        else {
+            const nextValue = convertRomanNumeralCharacterToInteger(upperCaseRomanNumeral[index + 1]);
+
+            if (currentValue < nextValue) (result -= currentValue);
+            else (result += currentValue);
+        }
+    }
+
+    if (!result) {
+        throw new InvalidRomanNumeralError();
+    }
+
+    return result;
+}
+
+function convertRomanNumeralCharacterToInteger(romanNumeralCharacter) {
     const romanNumeralToIntLookupTable = {
         'I': 1,
         'V': 5,
@@ -10,29 +32,16 @@ export function romanNumeralToInt(romanNumeral) {
         'M': 1000
     }
 
-    var result = 0;
-
-    for (const [index, char] of upperCaseRomanNumeral.entries()) {
-        const currentValue = romanNumeralToIntLookupTable[char];
-
-        if (index === upperCaseRomanNumeral.length - 1) (result += currentValue);
-        else {
-            const nextValue = romanNumeralToIntLookupTable[upperCaseRomanNumeral[index + 1]];
-
-            if (currentValue < nextValue) (result -= currentValue);
-            else (result += currentValue);
-        }
+    try {
+        return romanNumeralToIntLookupTable[romanNumeralCharacter];
     }
-
-    if (!result) {
-        throw new InvalidRomanNumeralError('Valid roman numerals are IVX...');
+    catch(error) {
+        throw new InvalidRomanNumeralError();
     }
-
-    return result;
 }
 
 class InvalidRomanNumeralError extends Error {
-    constructor(message) {
+    constructor(message = 'Valid roman numerals are I, V, X...') {
         super(message);
         this.name = "InvalidRomanNumeralError";
     }
