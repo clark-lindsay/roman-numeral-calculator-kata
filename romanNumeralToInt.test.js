@@ -27,6 +27,10 @@ describe('Roman numeral to integer translator', () => {
         expect(romanNumeralToInt('IX')).toEqual(9);
     });
 
+    it('returns 19 when given XIX', () => {
+        expect(romanNumeralToInt('XIX')).toEqual(19);
+    });
+
     it('can convert two character roman numeral strings into integers', () => {
         expect(romanNumeralToInt('IV')).toEqual(4);
         expect(romanNumeralToInt('XL')).toEqual(40);

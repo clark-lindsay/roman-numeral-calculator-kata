@@ -1,5 +1,5 @@
 export function romanNumeralToInt(romanNumeral) {
-    const upperCaseRomanNumeral = romanNumeral.toUpperCase();
+    const upperCaseRomanNumeral = [...(romanNumeral.toUpperCase())];
     const romanNumeralToIntLookupTable = {
         'I': 1,
         'V': 5,
@@ -10,12 +10,17 @@ export function romanNumeralToInt(romanNumeral) {
         'M': 1000
     }
 
-    const result = romanNumeralToIntLookupTable[upperCaseRomanNumeral];
+    var result = 0;
 
-    if (upperCaseRomanNumeral.length > 1) {
-        const [char1Value, char2Value] = [romanNumeralToIntLookupTable[upperCaseRomanNumeral[0]], romanNumeralToIntLookupTable[upperCaseRomanNumeral[1]]];
-        if (char2Value > char1Value) {
-            return char2Value - char1Value;
+    for (const [index, char] of upperCaseRomanNumeral.entries()) {
+        const currentValue = romanNumeralToIntLookupTable[char];
+
+        if (index === upperCaseRomanNumeral.length - 1) (result += currentValue);
+        else {
+            const nextValue = romanNumeralToIntLookupTable[upperCaseRomanNumeral[index + 1]];
+
+            if (currentValue < nextValue) (result -= currentValue);
+            else (result += currentValue);
         }
     }
 
