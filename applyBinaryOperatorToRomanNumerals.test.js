@@ -12,4 +12,10 @@ describe('applying binary operators to roman numerals', () => {
         expect(applyBinaryOperatorToRomanNumerals('XLV', '-', 'VII')).toEqual(38);
         expect(applyBinaryOperatorToRomanNumerals('MC', '-', 'D')).toEqual(600);
     });
+
+    it('can produce the product of two roman numerals', () => {
+        expect(applyBinaryOperatorToRomanNumerals('VII', '*', 'III')).toEqual(21);
+        expect(applyBinaryOperatorToRomanNumerals('CXL', '*', 'II')).toEqual(280);
+        expect(applyBinaryOperatorToRomanNumerals('II', '*', 'II')).toEqual(4);
+    });
 });

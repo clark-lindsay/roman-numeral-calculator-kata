@@ -1,6 +1,10 @@
 import { romanNumeralToInt } from './romanNumeralToInt';
 
 export function applyBinaryOperatorToRomanNumerals(firstOperand, operator, secondOperand) {
-    if (operator === '-') return romanNumeralToInt(firstOperand) - romanNumeralToInt(secondOperand);
-    return romanNumeralToInt(firstOperand) + romanNumeralToInt(secondOperand);
+    const valueOfFirstOperand = romanNumeralToInt(firstOperand);
+    const valueOfSecondOperand = romanNumeralToInt(secondOperand);
+
+    if (operator === '-') return valueOfFirstOperand - valueOfSecondOperand;
+    if (operator === '*') return valueOfFirstOperand * valueOfSecondOperand;
+    return valueOfFirstOperand + valueOfSecondOperand;
 }
