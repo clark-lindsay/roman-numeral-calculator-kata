@@ -6,5 +6,6 @@ export function applyBinaryOperatorToRomanNumerals(firstOperand, operator, secon
 
     if (operator === '-') return valueOfFirstOperand - valueOfSecondOperand;
     if (operator === '*') return valueOfFirstOperand * valueOfSecondOperand;
+    if (operator === '/') return valueOfFirstOperand / valueOfSecondOperand;
     return valueOfFirstOperand + valueOfSecondOperand;
 }

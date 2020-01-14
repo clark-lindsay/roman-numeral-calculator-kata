@@ -18,4 +18,11 @@ describe('applying binary operators to roman numerals', () => {
         expect(applyBinaryOperatorToRomanNumerals('CXL', '*', 'II')).toEqual(280);
         expect(applyBinaryOperatorToRomanNumerals('II', '*', 'II')).toEqual(4);
     });
+
+    it('can produce the quotient of two roman numerals', () => {
+        expect(applyBinaryOperatorToRomanNumerals('XXI', '/', 'III')).toEqual(7);
+        expect(applyBinaryOperatorToRomanNumerals('XLIX', '/', 'VII')).toEqual(7);
+        expect(applyBinaryOperatorToRomanNumerals('M', '/', 'X')).toEqual(100);
+        expect(applyBinaryOperatorToRomanNumerals('I', '/', 'II')).toEqual(0.5);
+    });
 });
