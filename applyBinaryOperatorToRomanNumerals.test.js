@@ -1,4 +1,4 @@
-import { applyBinaryOperatorToRomanNumerals } from './applyBinaryOperatorToRomanNumerals';
+import { applyBinaryOperatorToRomanNumerals, InvalidRomanNumeralOperator } from './applyBinaryOperatorToRomanNumerals';
 
 describe('applying binary operators to roman numerals', () => {
     it('can add two roman numerals', () => {
@@ -24,5 +24,10 @@ describe('applying binary operators to roman numerals', () => {
         expect(applyBinaryOperatorToRomanNumerals('XLIX', '/', 'VII')).toEqual(7);
         expect(applyBinaryOperatorToRomanNumerals('M', '/', 'X')).toEqual(100);
         expect(applyBinaryOperatorToRomanNumerals('I', '/', 'II')).toEqual(0.5);
+    });
+
+    it('throws an error if it is given an operator besides +, -, *, or /', () => {
+        expect(() => applyBinaryOperatorToRomanNumerals('II', '%', 'II')).toThrow(InvalidRomanNumeralOperator);
+        expect(() => applyBinaryOperatorToRomanNumerals('II', '&', 'II')).toThrow(InvalidRomanNumeralOperator);
     });
 });
